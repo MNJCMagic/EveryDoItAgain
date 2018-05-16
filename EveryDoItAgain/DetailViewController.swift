@@ -53,6 +53,15 @@ class DetailViewController: UIViewController {
         }
     }
 
+    @IBAction func switchSwitched(_ sender: Any) {
+        if detailItem?.isCompleted == false {
+            detailItem?.isCompleted = true
+        } else {
+        detailItem?.isCompleted = false
+        }
 
+    
+    
 }
 
+}

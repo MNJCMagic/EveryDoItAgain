@@ -53,9 +53,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Cv-hs-Jgc">
+                                <rect key="frame" x="163" y="405" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchSwitched:" destination="JEX-9P-axG" eventType="valueChanged" id="dxa-Z2-h0P"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="8Cv-hs-Jgc" firstAttribute="centerX" secondItem="VUw-jc-0yf" secondAttribute="centerX" id="1ms-9b-xFe"/>
                             <constraint firstItem="Vlq-HX-TOt" firstAttribute="top" secondItem="0XM-y9-sOw" secondAttribute="bottom" constant="18" id="Edj-YF-Z7K"/>
                             <constraint firstItem="0XM-y9-sOw" firstAttribute="centerX" secondItem="VUw-jc-0yf" secondAttribute="centerX" id="Fik-mN-nAn"/>
                             <constraint firstItem="0XM-y9-sOw" firstAttribute="top" secondItem="bhP-ul-aOg" secondAttribute="bottom" constant="23.5" id="Q7P-Xd-5T5"/>
@@ -63,6 +70,7 @@
                             <constraint firstItem="Vlq-HX-TOt" firstAttribute="centerX" secondItem="VUw-jc-0yf" secondAttribute="centerX" id="TPd-ey-yDD"/>
                             <constraint firstItem="bhP-ul-aOg" firstAttribute="centerX" secondItem="VUw-jc-0yf" secondAttribute="centerX" id="jB4-Gy-8er"/>
                             <constraint firstItem="0XM-y9-sOw" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="jWN-iV-94e"/>
+                            <constraint firstItem="8Cv-hs-Jgc" firstAttribute="top" secondItem="Vlq-HX-TOt" secondAttribute="bottom" constant="22" id="oJ7-8b-Iqj"/>
                             <constraint firstItem="bhP-ul-aOg" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="215" id="rgl-rz-Aih"/>
                             <constraint firstAttribute="trailing" secondItem="0XM-y9-sOw" secondAttribute="trailing" constant="20" symbolic="YES" id="tHV-ZD-HQj"/>
                         </constraints>

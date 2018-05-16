@@ -128,6 +128,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let todo = fetchedResultsController.object(at: indexPath)
+       
         configureCell(cell, withTodo: todo)
         return cell
     }
@@ -154,6 +155,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func configureCell(_ cell: UITableViewCell, withTodo todo: Todo) {
+        if todo.isCompleted == false {
+            cell.backgroundColor = UIColor.green
+        } else {
+            cell.backgroundColor = UIColor.red
+        }
         cell.textLabel!.text = todo.title
         cell.detailTextLabel?.text = "\(todo.todoDescription ?? "") - \(todo.priorityNumber)"
     }
@@ -217,6 +223,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 tableView.deleteRows(at: [indexPath!], with: .fade)
             case .update:
                 configureCell(tableView.cellForRow(at: indexPath!)!, withTodo: anObject as! Todo)
+                saveThisThing()
             case .move:
                 configureCell(tableView.cellForRow(at: indexPath!)!, withTodo: anObject as! Todo)
                 tableView.moveRow(at: indexPath!, to: newIndexPath!)
@@ -227,6 +234,18 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         tableView.endUpdates()
     }
 
+    func saveThisThing() {
+        let context = self.fetchedResultsController.managedObjectContext
+        do {
+            try context.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+        
+    }
     /*
      // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
      
